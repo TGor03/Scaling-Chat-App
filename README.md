@@ -1,4 +1,4 @@
-A scaling chat app
+A scaling chat app for use as a portfolio project
 
 Copyright 2023 Trenton Gorman
 
