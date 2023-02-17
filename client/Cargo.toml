@@ -6,4 +6,4 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-CommonTypes = { path = "../commontypes" }
+common_types = { path = "../common_types" }

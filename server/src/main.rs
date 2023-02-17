@@ -1,16 +1,23 @@
-use std::thread;
+use common_types::PacketType;
 use std::{
     io::prelude::*,
     net::{Shutdown, TcpListener, TcpStream},
+    thread,
 };
-use CommonTypes::PacketType;
 
 fn handle_client(mut stream: TcpStream) {
-    let mut data = [0 as u8; 50]; //UNSAFE FIX LATER
-    let response = [PacketType::HELLO_ACK as u8; 50];
+    let mut data = [0 as u8; 50]; //FIXME: UNSAFE
+    let response = [PacketType::HELLO_ACK as u8; 2];
     while if let Ok(_size) = stream.read(&mut data) {
         //Send HELLO_ACK packet to acknowledge we recieved the packet
         stream.write(&response).unwrap();
+        // Print the data we recieved
+        println!(
+            "Recieved packet from {}:\n{:?}",
+            stream.peer_addr().unwrap(),
+            data
+        );
+
         true
     } else {
         println!(
