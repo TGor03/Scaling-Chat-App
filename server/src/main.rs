@@ -3,13 +3,14 @@ use std::{
     io::prelude::*,
     net::{Shutdown, TcpListener, TcpStream},
 };
+use CommonTypes::PacketType;
 
 fn handle_client(mut stream: TcpStream) {
     let mut data = [0 as u8; 50]; //UNSAFE FIX LATER
-    let HELLO_ACK = [12 as u8; 50];
-    while if let Ok(size) = stream.read(&mut data) {
+    let response = [PacketType::HELLO_ACK as u8; 50];
+    while if let Ok(_size) = stream.read(&mut data) {
         //Send HELLO_ACK packet to acknowledge we recieved the packet
-        stream.write(&HELLO_ACK).unwrap();
+        stream.write(&response).unwrap();
         true
     } else {
         println!(

@@ -3,19 +3,19 @@
 version = 3
 
 [[package]]
+name = "CommonTypes"
+version = "0.1.0"
+
+[[package]]
 name = "client"
 version = "0.1.0"
 dependencies = [
- "packetlib",
+ "CommonTypes",
 ]
-
-[[package]]
-name = "packetlib"
-version = "0.1.0"
 
 [[package]]
 name = "server"
 version = "0.1.0"
 dependencies = [
- "packetlib",
+ "CommonTypes",
 ]

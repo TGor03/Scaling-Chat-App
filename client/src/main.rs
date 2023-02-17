@@ -1,7 +1,7 @@
-use packetlib::PacketType;
 use std::io::{Read, Write};
 use std::net::TcpStream;
 use std::str::from_utf8;
+use CommonTypes::PacketType;
 
 fn main() {
     match TcpStream::connect("127.0.0.1:9231") {
